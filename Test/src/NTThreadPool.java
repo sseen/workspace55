@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
@@ -22,11 +21,11 @@ public class NTThreadPool {
 		ExecutorService pool = Executors.newFixedThreadPool(8);
 		MyThread tt1 = new NTThreadPool().new MyThread("");
 		String _tmp ;
-			while(!bq.isEmpty()) {		
-				_tmp = bq.poll();
-				tt1 = new NTThreadPool().new MyThread(_tmp);
-				pool.execute(tt1);
-			}
+		while(!bq.isEmpty()) {		
+			_tmp = bq.poll();
+			tt1 = new NTThreadPool().new MyThread(_tmp);
+			pool.execute(tt1);
+		}
 		
 		// 关闭线程池
 		pool.shutdown();
